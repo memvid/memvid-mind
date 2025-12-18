@@ -4,9 +4,8 @@
 
 **Give Claude Code a memory. One file. That's it.**
 
+[![npm version](https://img.shields.io/npm/v/memvid-mind.svg)](https://www.npmjs.com/package/memvid-mind)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-blueviolet.svg)](https://claude.ai)
 
 [Installation](#installation) • [How it Works](#how-it-works) • [Commands](#commands) • [FAQ](#faq)
 
@@ -99,18 +98,6 @@ Keeps errors, structure, key functions. Drops the noise.
 /mind recent                      # what happened lately
 /mind stats                       # how much is stored
 ```
-
----
-
-## Memory Badge
-
-Show Claude's learnings in your README:
-
-```markdown
-[![Claude Memory](https://memvid.com/api/badge/YOUR-USERNAME/YOUR-REPO)](https://memvid.com)
-```
-
-Styles: `?style=flat` | `?style=flat-square` | `?style=for-the-badge`
 
 ---
 

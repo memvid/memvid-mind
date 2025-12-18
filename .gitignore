@@ -27,7 +27,9 @@ npm-debug.log*
 .env.local
 .env.*.local
 
-# Memory files (don't commit example memories)
+# Memory files (users shouldn't commit their memories - too large for git)
+# Use Git LFS if you really need to version your memory
+.claude/
 *.mv2
 
 # Temp
