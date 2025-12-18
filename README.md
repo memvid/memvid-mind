@@ -1,18 +1,20 @@
-# memvid-mind
+<div align="center">
 
-[![Claude Memory](https://memvid.com/api/badge/Memvid/memvid-mind)](https://memvid.com)
-[![npm version](https://img.shields.io/npm/v/memvid-mind.svg)](https://www.npmjs.com/package/memvid-mind)
+# 🧠 memvid-mind
+
+**Give Claude Code a memory. One file. That's it.**
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-blueviolet.svg)](https://claude.ai)
 
-Give Claude Code a memory. One file. That's it.
+[Installation](#installation) • [How it Works](#how-it-works) • [Commands](#commands) • [FAQ](#faq)
 
-```bash
-claude plugin install memvid-mind
-```
+</div>
 
 ---
 
-## The problem
+## The Problem
 
 ```
 You: "Hey Claude, remember when we fixed that auth bug?"
@@ -24,18 +26,30 @@ You: "We literally spent 3 hours on this yesterday"
 Claude: "I'd be happy to help you debug it from scratch!"
 ```
 
-200K context window. Zero memory between sessions. You're paying for a goldfish with a PhD.
+200K context window. Zero memory between sessions.
+
+**You're paying for a goldfish with a PhD.**
 
 ---
 
-## The fix
+## Installation
 
-After you install, Claude remembers everything in one file:
+```bash
+claude plugin install memvid-mind
+```
+
+That's it. No config needed.
+
+---
+
+## How it Works
+
+After install, Claude remembers everything in **one file**:
 
 ```
 your-project/
 └── .claude/
-    └── mind.mv2   # Claude's brain. ~4MB. That's it.
+    └── mind.mv2   # Claude's brain. That's it.
 ```
 
 Next session:
@@ -46,33 +60,34 @@ You: "What did we decide about the auth system?"
 Claude: "Last week we chose JWT over sessions because..."
 ```
 
----
+### What Gets Captured
 
-## What it actually does
+| Event | What's Saved |
+|-------|--------------|
+| **Session start** | Loads relevant context from past sessions |
+| **While working** | File structures, decisions, bugs found, solutions |
+| **Session end** | Summary of what happened |
 
-**On session start:** Loads relevant context from past sessions
+### Why One File?
 
-**While you work:** Captures what Claude learns (file structures, decisions, bugs, fixes)
+- **`git commit`** - version control Claude's memory
+- **`scp`** - copy to another machine, it just works
+- **Share** - instant context transfer to teammates
 
-**On session end:** Saves a summary
-
-No config. No database. No background service. Just one file that you can:
-- `git commit` (version control your Claude's memory)
-- `scp` to another machine (it just works)
-- Share with teammates (instant context transfer)
+No database. No background service. No config.
 
 ---
 
 ## Endless Mode
 
-Claude hits context limits fast when reading big files. This compresses tool outputs ~20x so you can actually finish what you started.
+Claude hits context limits fast. This compresses tool outputs ~20x:
 
 ```
-Before:  Read file (8K) + Edit (4K) + Bash (12K) = 24K tokens gone
-After:   Read file (400) + Edit (200) + Bash (600) = 1.2K tokens
+Before:  Read (8K) + Edit (4K) + Bash (12K) = 24K tokens gone
+After:   Read (400) + Edit (200) + Bash (600) = 1.2K tokens
 ```
 
-It keeps the important stuff (errors, structure, key functions) and drops the noise.
+Keeps errors, structure, key functions. Drops the noise.
 
 ---
 
@@ -87,18 +102,15 @@ It keeps the important stuff (errors, structure, key functions) and drops the no
 
 ---
 
-## vs claude-mem
+## Memory Badge
 
-claude-mem uses SQLite + Chroma + a background service on port 37777.
+Show Claude's learnings in your README:
 
-This uses one file. No dependencies beyond the native SDK.
+```markdown
+[![Claude Memory](https://memvid.com/api/badge/YOUR-USERNAME/YOUR-REPO)](https://memvid.com)
+```
 
-| | memvid-mind | claude-mem |
-|---|---|---|
-| Storage | 1 file | SQLite + Chroma |
-| Background process | No | Yes (port 37777) |
-| Portable | Yes | No |
-| Setup | `plugin install` | Complex |
+Styles: `?style=flat` | `?style=flat-square` | `?style=for-the-badge`
 
 ---
 
@@ -110,47 +122,17 @@ This uses one file. No dependencies beyond the native SDK.
 **Privacy?**
 Everything stays on your machine. Nothing uploaded.
 
-**Does it slow things down?**
-No. Native Rust core. Sub-millisecond operations.
+**Speed?**
+Native Rust core. Sub-millisecond operations.
 
-**Reset memories?**
+**Reset?**
 Delete `.claude/mind.mv2` or run `/mind clear`.
-
----
-
-## Memory Badge
-
-Show off Claude's learnings in your README:
-
-```markdown
-[![Claude Memory](https://memvid.com/api/badge/YOUR-USERNAME/YOUR-REPO)](https://memvid.com)
-```
-
-**Styles:**
-```markdown
-<!-- flat (default) -->
-![](https://memvid.com/api/badge/user/repo)
-
-<!-- flat-square -->
-![](https://memvid.com/api/badge/user/repo?style=flat-square)
-
-<!-- for-the-badge (large) -->
-![](https://memvid.com/api/badge/user/repo?style=for-the-badge)
-
-<!-- with size info -->
-![](https://memvid.com/api/badge/user/repo?style=plastic)
-```
-
-The badge updates automatically when you push your `.claude/mind.mv2` file.
 
 ---
 
 ## Config (optional)
 
-Most people don't need this. But if you want:
-
 ```json
-// .memvid-mind.json
 {
   "memoryPath": ".claude/mind.mv2",
   "maxContextObservations": 20,
@@ -160,6 +142,10 @@ Most people don't need this. But if you want:
 
 ---
 
+<div align="center">
+
 MIT License
 
-Built on [memvid](https://github.com/memvid/memvid) - the single-file memory engine.
+Built on [memvid](https://github.com/Memvid/memvid) — the single-file memory engine.
+
+</div>
