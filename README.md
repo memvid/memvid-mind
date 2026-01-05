@@ -58,17 +58,14 @@ the refresh token rotation - here's what we fixed..."
 
 **30 seconds. No config.**
 
-```bash
-# One-time setup (if you haven't used GitHub plugins before)
-git config --global url."https://github.com/".insteadOf "git@github.com:"
+1. Add the marketplace in Claude Code:
+```
+/plugin add marketplace memvid/claude-brain
 ```
 
-Then in Claude Code:
-```
-/plugin add claude-brain
-```
+2. Go to **Plugins tab** (`/plugins`) → **Discover** → Install **mind**
 
-Restart Claude Code. **Done.**
+3. Restart Claude Code. **Done.**
 
 ---
 
@@ -105,10 +102,10 @@ your-project/
 ## 📦 Commands
 
 ```bash
-/mind stats                       # memory statistics
-/mind search "authentication"     # find past context
-/mind ask "why did we choose X?"  # ask your memory
-/mind recent                      # what happened lately
+/mind:mind stats                       # memory statistics
+/mind:mind search "authentication"     # find past context
+/mind:mind ask "why did we choose X?"  # ask your memory
+/mind:mind recent                      # what happened lately
 ```
 
 ---
@@ -131,24 +128,22 @@ Work longer without hitting limits.
 ## ❓ FAQ
 
 <details>
-<summary><b>Why is the .mv2 file ~4MB even when empty?</b></summary>
+<summary><b>How big is the .mv2 file?</b></summary>
 
-The `.mv2` format is designed for **instant operations** on files of any size. It pre-allocates:
+An empty `.mv2` file is only **~70KB**. It includes:
 
-- **Vector index** for semantic search (find memories by meaning, not just keywords)
-- **Write-ahead log (WAL)** for crash-safe writes
+- **Lexical index** for fast keyword search
+- **Vector index** for semantic search (find by meaning)
 - **Block-aligned storage** for O(1) random access
 
-This is the same architecture used by SQLite, LevelDB, and other production databases. The 4MB overhead enables sub-millisecond operations whether you have 10 memories or 10 million.
-
-*Think of it like an empty filing cabinet - it takes up space, but it's ready to organize thousands of documents instantly.*
+The file grows as you add memories (~1KB per memory). A year of daily use typically stays under 5MB.
 
 </details>
 
 <details>
 <summary><b>How big does the file get?</b></summary>
 
-~1KB per memory. 1000 memories ≈ 1MB additional. The base 4MB is fixed overhead.
+~1KB per memory. 1000 memories ≈ 1MB. The base ~70KB is minimal overhead.
 
 </details>
 
