@@ -1,6 +1,6 @@
 <div align="center">
 
-# Claude Brain
+<img src="logo.png" alt="Claude Brain" width="320" />
 
 ### Give Claude Code photographic memory.
 
@@ -157,7 +157,7 @@ Sub-millisecond. Native Rust core. Searches 10K+ memories in <1ms.
 
 <div align="center">
 
-Built on **[memvid](https://github.com/memvid/memvid)** — the single-file memory engine
+Built on **[memvid](https://github.com/memvid/memvid)** - the single-file memory engine
 
 <br />
 
@@ -165,6 +165,6 @@ Built on **[memvid](https://github.com/memvid/memvid)** — the single-file memo
 
 <br />
 
-*Send me your `.mv2` file and I'll tell you what's wrong with your code. No context needed—I already know everything.*
+*Send me your `.mv2` file and I'll tell you what's wrong with your code. No context needed - I already know everything.*
 
 </div>
