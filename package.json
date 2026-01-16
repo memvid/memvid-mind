@@ -44,11 +44,13 @@
     "url": "https://github.com/memvid/claude-brain/issues"
   },
   "dependencies": {
-    "@memvid/sdk": "^2.0.146"
+    "@memvid/sdk": "^2.0.146",
+    "proper-lockfile": "^4.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@types/node": "^22.0.0",
+    "@types/proper-lockfile": "^4.1.4",
     "eslint": "^9.0.0",
     "tsup": "^8.0.0",
     "typescript": "^5.7.0",
